@@ -6412,7 +6412,8 @@ static int prepare_display_buf(struct AV1HW_s *hw,
 					}
 				}
 			} else {
-				if ((pic_config->pts == 0) || (pic_config->pts <= hw->last_pts)) {
+				if ((pic_config->pts == 0) || (pic_config->pts <= hw->last_pts) &&
+					(pic_config->pts64 <= hw->last_pts_us64)) {
 					for (i = (FRAME_BUFFERS - 1); i > 0; i--) {
 						if ((hw->last_pts == hw->frame_mode_pts_save[i]) ||
 							(hw->last_pts_us64 == hw->frame_mode_pts64_save[i])) {
