@@ -7374,8 +7374,8 @@ static int prepare_display_buf(struct VP9Decoder_s *pbi,
 	display_frame_count[pbi->index]++;
 	if (vf) {
 		if (!force_pts_unstable) {
-			if ((pic_config->pts == 0) || (pic_config->pts <= pbi->last_pts) &&
-				(pic_config->pts64 <= pbi->last_pts_us64)) {
+			if ((pic_config->pts == 0) || ((pic_config->pts <= pbi->last_pts) &&
+				(pic_config->pts64 <= pbi->last_pts_us64))) {
 					for (i = (FRAME_BUFFERS - 1); i > 0; i--) {
 						if ((pbi->last_pts == pbi->frame_mode_pts_save[i]) ||
 								(pbi->last_pts_us64 == pbi->frame_mode_pts64_save[i])) {
