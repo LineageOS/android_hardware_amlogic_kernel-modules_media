@@ -35,10 +35,10 @@ all: modules
 
 modules_install:
 	$(MAKE) INSTALL_MOD_STRIP=1 M=$(M)/drivers -C $(KERNEL_SRC) modules_install
-	mkdir -p ${OUT_DIR}/private/modules
-	cd ${OUT_DIR}/$(M)/; find -name "*.ko" -exec cp {} ${OUT_DIR}/private/modules/ \;
-	mkdir -p ${OUT_DIR}/private/firmware/video
-	cp $(KERNEL_SRC)/$(M)/firmware/* ${OUT_DIR}/private/firmware/video/
+	mkdir -p ${OUT_DIR}/../private/modules
+	cd ${OUT_DIR}/$(M)/; find -name "*.ko" -exec cp {} ${OUT_DIR}/../private/modules/ \;
+	mkdir -p ${OUT_DIR}/../private/firmware/video
+	cp $(KERNEL_SRC)/$(M)/firmware/* ${OUT_DIR}/../private/firmware/video/
 
 clean:
 	$(MAKE) -C $(KERNEL_SRC) M=$(M) clean
