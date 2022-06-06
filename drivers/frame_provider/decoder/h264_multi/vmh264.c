@@ -6547,7 +6547,12 @@ static irqreturn_t vh264_isr_thread_fn(struct vdec_s *vdec, int irq)
 					((video_signal & 0xff0000) >> 16) |
 					((video_signal & 0x3f000000));
 
-
+		/* When the matrix_coeffiecents, transfer_characteristics and colour_primaries
+		 * syntax elements are absent, their values shall be presumed to be equal to 2
+		 */
+		if ((hw->video_signal_from_vui & 0x100000) == 0) {
+			hw->video_signal_from_vui =  (hw->video_signal_from_vui & 0xfff00000) | 0x20202;
+		}
 		/*dpb_print(DECODE_ID(hw),
 				0,
 				"video_signal_from_vui:0x%x, "

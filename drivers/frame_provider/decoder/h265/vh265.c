@@ -11363,6 +11363,13 @@ force_output:
 			}
 #endif
 		hevc->video_signal_type = (v << 16) | c;
+
+		/* When the matrix_coeffiecents, transfer_characteristics and colour_primaries
+		 * syntax elements are absent, their values shall be presumed to be equal to 2
+		 */
+		if ((hevc->video_signal_type & 0x100000) == 0) {
+			hevc->video_signal_type = (hevc->video_signal_type & 0xfff00000) | 0x20202;
+		}
 		video_signal_type = hevc->video_signal_type;
 	}
 
