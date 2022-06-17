@@ -8533,6 +8533,13 @@ static irqreturn_t vav1_isr_thread_fn(int irq, void *data)
 		hw->video_signal_type = (hw->aom_param.p.video_signal_type << 16
 			| hw->aom_param.p.color_description);
 
+		/* When the matrix_coeffiecents, transfer_characteristics and colour_primaries
+		 * syntax elements are absent, their values shall be presumed to be equal to 2
+		 */
+		if ((hw->video_signal_type & 0x100000) == 0) {
+			hw->video_signal_type =  (hw->video_signal_type & 0xfff00000) | 0x20202;
+		}
+
 	    if (next_lcu_size != hw->current_lcu_size) {
 			av1_print(hw, AOM_DEBUG_HW_MORE,
 				" ## lcu_size changed from %d to %d\n",
