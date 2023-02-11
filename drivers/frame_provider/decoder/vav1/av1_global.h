@@ -54,9 +54,9 @@
 
 //typedef char int8_t;
 //#ifndef BUFMGR_FOR_SIM
-typedef unsigned char uint8_t;
+//typedef unsigned char uint8_t;
 //#endif
-typedef unsigned int uint32_t;
+//typedef unsigned int uint32_t;
 //typedef int int32_t;
 //typedef long long int64_t;
 
@@ -108,9 +108,6 @@ typedef struct BuffInfo_s
 } BuffInfo_t;
 #endif
 
-#define va_start(v,l)   __builtin_va_start(v,l)
-#define va_end(v)       __builtin_va_end(v)
-#define va_arg(v,l)     __builtin_va_arg(v,l)
 /*
 mem.h
 */

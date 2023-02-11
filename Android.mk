@@ -57,7 +57,7 @@ MEDIA_CFLAGS := $(LOCAL_CFLAGS)
 $(_media_ko): $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(BOARD_KERNEL_IMAGE_NAME)
 	@mkdir -p $(dir $@)
 	@cp -R $(MEDIA_PATH)/* $(_media_intermediates)/
-	$(hide) +$(KERNEL_MAKE_CMD) $(PATH_OVERRIDE) $(KERNEL_MAKE_FLAGS) -C $(KERNEL_OUT) M=$(abspath $(_media_intermediates)) ARCH=$(TARGET_KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) EXTRA_CFLAGS="$(MEDIA_CFLAGS)" $(MEDIA_CONFIGS) modules
+	$(PATH_OVERRIDE) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(KERNEL_OUT) M=$(abspath $(_media_intermediates)) ARCH=$(TARGET_KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNEL_CLANG_TRIPLE) $(KERNEL_CC) EXTRA_CFLAGS="$(MEDIA_CFLAGS)" $(MEDIA_CONFIGS) modules
 	modules=$$(find $(_media_intermediates) -type f -name '*.ko'); \
 	for f in $$modules; do \
 		$(KERNEL_TOOLCHAIN_PATH)strip --strip-unneeded $$f; \

@@ -1239,7 +1239,7 @@ static ssize_t demux##i##_show_free_filters(struct class *class,  \
 		return -ERESTARTSYS; \
 	count = 0;\
 	for (fid = 0; fid < dmx->filternum; fid++) {\
-		if (!dmx->filter[fid].state != DMX_STATE_FREE)\
+		if (!(dmx->filter[fid].state != DMX_STATE_FREE))	\
 			count++;\
 	} \
 	mutex_unlock(&dmx->mutex);\
@@ -1290,7 +1290,7 @@ static ssize_t demux_state_show(struct class *class,
 
 		count = 0;
 		for (fid = 0; fid < dmx->filternum; fid++) {
-			if (!dmx->filter[fid].state != DMX_STATE_FREE)
+			if (!(dmx->filter[fid].state != DMX_STATE_FREE))
 				count++;
 			else {
 				r = sprintf(buf, "fid:%d, pid:0x%0x, state:%d\n", fid, dmx->filter[fid].feed->pid,

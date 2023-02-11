@@ -1185,8 +1185,6 @@ int cimax_usb_dev_add(struct device_s *dev, int id)
 	if (!g_usb)
 		return 0;
 
-	id = id;
-
 	cimax_usb_device_open(dev);
 	cimax_usb_select_interface(dev, 3);
 
@@ -1224,7 +1222,6 @@ int cimax_usb_dev_remove(struct device_s *dev, int id)
 	pr_dbg("dev remove\n");
 	if (!g_usb)
 		return 0;
-	id = id;
 	pr_dbg("setup poll -> stop\n");
 	cimax_usb_setup_poll(g_usb, STOP_MODE);
 	pr_dbg("setup poll end\n");

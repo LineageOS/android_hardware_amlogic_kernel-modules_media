@@ -195,7 +195,7 @@ static int vdec_mpeg4_init(struct aml_vcodec_ctx *ctx, unsigned long *h_vdec)
 		return -ENOMEM;
 
 	inst->vdec.video_type	= VFORMAT_MPEG4;
-	inst->vdec.format	= VIDEO_DEC_FORMAT_MPEG4_5;
+	inst->vdec.format	= (enum vformat_e)VIDEO_DEC_FORMAT_MPEG4_5;
 	inst->vdec.dev		= ctx->dev->vpu_plat_dev;
 	inst->vdec.filp		= ctx->dev->filp;
 	inst->vdec.config	= ctx->config;

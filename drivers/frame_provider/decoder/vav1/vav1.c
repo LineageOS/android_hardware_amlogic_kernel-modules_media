@@ -432,10 +432,6 @@ struct MVBUF_s {
 #define LOSLESS_COMPRESS_MODE
 #endif
 
-typedef unsigned int u32;
-typedef unsigned short u16;
-
-
 static u32 get_picture_qos;
 
 static u32 debug;

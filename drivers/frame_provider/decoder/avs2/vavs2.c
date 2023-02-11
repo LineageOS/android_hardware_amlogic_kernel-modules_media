@@ -405,11 +405,6 @@ struct MVBUF_s {
 #define DOUBLE_WRITE_YSTART_TEMP 0x02000000
 #define DOUBLE_WRITE_CSTART_TEMP 0x02900000
 
-
-
-typedef unsigned int u32;
-typedef unsigned short u16;
-
 #define AVS2_DBG_BUFMGR                   0x01
 #define AVS2_DBG_BUFMGR_MORE              0x02
 #define AVS2_DBG_BUFMGR_DETAIL            0x04

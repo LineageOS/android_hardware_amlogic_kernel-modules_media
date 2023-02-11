@@ -14454,7 +14454,7 @@ static int ammvdec_h265_probe(struct platform_device *pdev)
 	hevc->platform_dev = pdev;
 
 	if (((get_dbg_flag(hevc) & IGNORE_PARAM_FROM_CONFIG) == 0) &&
-			pdata->config && pdata->config_len) {
+			pdata->config_len) {
 #ifdef CONFIG_AMLOGIC_MEDIA_MULTI_DEC
 		/*use ptr config for doubel_write_mode, etc*/
 		hevc_print(hevc, 0, "pdata->config=%s\n", pdata->config);

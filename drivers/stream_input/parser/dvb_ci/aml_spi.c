@@ -1738,7 +1738,7 @@ struct class_attribute *attr, const char *buf, size_t size)
 		return size;
 	}
 
-	if ((parm[0][0] == 'r')) {
+	if (parm[0][0] == 'r') {
 		if (n > 2) {
 			pr_err("read: invalid parameter\n");
 			kfree(buf_orig);
@@ -1760,7 +1760,7 @@ struct class_attribute *attr, const char *buf, size_t size)
 				break;
 		}
 		pr_dbg("%s: 0x%x --> 0x%x\n", parm[0], addr, retval);
-	} else if ((parm[0][0] == 'w')) {
+	} else if (parm[0][0] == 'w') {
 		if (n != 3) {
 			pr_err("write: invalid parameter\n");
 			kfree(buf_orig);
@@ -1783,13 +1783,13 @@ retval = aml_ci_mem_write_by_spi(ci, 0, addr, val);
 				break;
 		}*/
 		pr_dbg("%s: 0x%x <-- 0x%x\n", parm[0], addr, retval);
-	} else if ((parm[0][0] == 'f')) {
+	} else if (parm[0][0] == 'f') {
 		pr_dbg("full test----\r\n");
 		aml_spi_ca_full_test(ci);
-	} else if ((parm[0][0] == 'c')) {
+	} else if (parm[0][0] == 'c') {
 		pr_dbg("cis test----\r\n");
 		aml_ci_full_test_by_spi(ci, 0, addr);
-	} else if ((parm[0][0] == 'p')) {
+	} else if (parm[0][0] == 'p') {
 		pr_dbg("cis dvb_ca_en50221_parse_attributes----\r\n");
 		dvb_ca_en50221_parse_attributes();
 	}

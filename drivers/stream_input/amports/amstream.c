@@ -4405,7 +4405,7 @@ static ssize_t store_canuse_buferlevel(struct class *class,
 
 	if (ret != 0)
 		return -EINVAL;
-	val = val;
+
 	reset_canuse_buferlevel(val);
 	return size;
 }
