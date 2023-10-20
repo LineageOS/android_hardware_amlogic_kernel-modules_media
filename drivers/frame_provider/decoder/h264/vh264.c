@@ -3145,8 +3145,8 @@ static void vh264_isr(void)
 
 				high_bandwidth |=
 				((codec_mm_get_total_size() < 80 * SZ_1M)
-				& ((READ_VREG(AV_SCRATCH_N) & 0xf) == 3)
-				& ((frame_width * frame_height) >= 1920*1080));
+				&& ((READ_VREG(AV_SCRATCH_N) & 0xf) == 3)
+				&& ((frame_width * frame_height) >= 1920*1080));
 				if (high_bandwidth)
 					vf->flag |= VFRAME_FLAG_HIGH_BANDWIDTH;
 
