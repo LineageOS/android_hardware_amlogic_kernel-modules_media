@@ -46,8 +46,13 @@ include $(CLEAR_VARS)
 LOCAL_MODULE        := media
 LOCAL_MODULE_SUFFIX := .ko
 LOCAL_MODULE_CLASS  := ETC
-LOCAL_MODULE_PATH   := $(TARGET_OUT_VENDOR)/lib/modules
 LOCAL_CFLAGS        := -Wno-error=pointer-sign -Wno-error=frame-larger-than=
+
+ifeq ($(BUILDING_VENDOR_DLKM_IMAGE),)
+    LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR)/lib/modules
+else
+    LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_DLKM)/lib/modules
+endif
 
 _media_intermediates := $(call intermediates-dir-for,$(LOCAL_MODULE_CLASS),$(LOCAL_MODULE))
 _media_ko := $(_media_intermediates)/$(LOCAL_MODULE)$(LOCAL_MODULE_SUFFIX)
