@@ -59,7 +59,7 @@ $(_media_ko): $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/$(BOARD_KERNEL_IMAGE_NAME)
 	@mkdir -p $(dir $@)
 	@cp -R $(MEDIA_PATH)/* $(_media_intermediates)/
 	$(PATH_OVERRIDE) $(KERNEL_MAKE_CMD) $(KERNEL_MAKE_FLAGS) -C $(KERNEL_OUT) M=$(abspath $(_media_intermediates)) ARCH=$(TARGET_KERNEL_ARCH) $(KERNEL_CROSS_COMPILE) $(KERNEL_CLANG_TRIPLE) $(KERNEL_CC) EXTRA_CFLAGS="$(MEDIA_CFLAGS)" $(MEDIA_CONFIGS) modules
-	modules=$$(find $(_media_intermediates) -type f -name '*.ko'); \
+	modules=$$(find $(_media_intermediates) -type f -name \*.ko); \
 	for f in $$modules; do \
 		$(TARGET_KERNEL_CLANG_PATH)/bin/llvm-strip --strip-unneeded $$f; \
 		cp $$f $(KERNEL_MODULES_OUT)/lib/modules; \
