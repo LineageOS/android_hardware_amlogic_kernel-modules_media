@@ -44,7 +44,7 @@ static u64 get_stc_time_us(s32 sSyncInsId, u64 *systemtime)
 	int ret;
 	u64 stc;
 	u64 timeus;
-	u64 pcr;
+	u64 pcr = 0;
 	s64 pcr_diff;
 	s64 time_diff;
 	s32 index = sSyncInsId;
@@ -58,7 +58,11 @@ static u64 get_stc_time_us(s32 sSyncInsId, u64 *systemtime)
 	if (pInstance->mDemuxId < 0)
 		return timeus;
 
+	#ifdef CONFIG_HAVE_DEMUX_GET_PCR
 	ret = demux_get_pcr(pInstance->mDemuxId, 0, &pcr);
+	#else
+	ret = -1;
+	#endif
 	if (ret != 0) {
 		stc = timeus;
 	} else {
