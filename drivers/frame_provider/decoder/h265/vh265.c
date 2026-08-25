@@ -996,10 +996,10 @@ static struct BuffInfo_s amvh265_workbuff_spec[WORK_BUF_SPEC_NUM] = {
 			.buf_size = 0x1e00,
 		},
 		.sao_abv = {
-			.buf_size = 0, //0x30000,
+			.buf_size = 0x30000,
 		},
 		.sao_vb = {
-			.buf_size = 0, //0x30000,
+			.buf_size = 0x30000,
 		},
 		.short_term_rps = {/*checked*/
 			/* SHORT_TERM_RPS - Max 64 set, 16 entry every set,
@@ -1083,10 +1083,10 @@ static struct BuffInfo_s amvh265_workbuff_spec[WORK_BUF_SPEC_NUM] = {
 			.buf_size = 0x4000,
 		},
 		.sao_abv = {
-			.buf_size = 0, //0x30000,
+			.buf_size = 0x30000,
 		},
 		.sao_vb = {
-			.buf_size = 0, //0x30000,
+			.buf_size = 0x30000,
 		},
 		.short_term_rps = {
 			/* SHORT_TERM_RPS - Max 64 set, 16 entry every set,
@@ -1172,10 +1172,10 @@ static struct BuffInfo_s amvh265_workbuff_spec[WORK_BUF_SPEC_NUM] = {
 			.buf_size = 0x4000*2,
 		},
 		.sao_abv = {
-			.buf_size = 0, //0x30000*2,
+			.buf_size = 0x30000*2,
 		},
 		.sao_vb = {
-			.buf_size = 0, //0x30000*2,
+			.buf_size = 0x30000*2,
 		},
 		.short_term_rps = {
 			// SHORT_TERM_RPS - Max 64 set, 16 entry every set, total 64x16x2 = 2048 bytes (0x800)
